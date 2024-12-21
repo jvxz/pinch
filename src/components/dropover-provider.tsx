@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
-import { H1, H3, Muted } from "./ui/typography";
 import { ImageUp } from "lucide-react";
 
 const variants: Variants = {
@@ -60,8 +59,8 @@ export default function DropoverProvider() {
         >
           <Card className="flex flex-col gap-4 p-8">
             <ImageUp className="mx-auto size-12" />
-            <H3 className="text-center">Import image</H3>
-            <Muted>Import image by dropping</Muted>
+            <h3 className="text-center text-2xl font-bold">Import image</h3>
+            <p>Import image by dropping</p>
           </Card>
         </motion.div>
       )}
