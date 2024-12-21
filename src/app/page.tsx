@@ -25,7 +25,7 @@ export default function Page() {
   return (
     <main className="h-screen">
       <ResizablePanelGroup direction="horizontal">
-        <ResizablePanel minSize={35}>
+        <ResizablePanel defaultSize={65} minSize={35}>
           <LeftPanel />
         </ResizablePanel>
         <ResizableHandle
