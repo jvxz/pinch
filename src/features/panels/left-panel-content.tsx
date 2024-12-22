@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Image } from "lucide-react";
-import ExpandPanelButton from "./right-panel-expand-buttons";
+import ExpandPanelButton from "./right-panel-expand-button";
 
 export default function LeftPanelContent() {
   return (
