@@ -3,11 +3,7 @@ import { create } from 'zustand'
 interface ImageData {
     image: string;
     setImage: (val: string) => void;
-    aspectRatio: {
-        width: number;
-        height: number;
-    };
-    setAspectRatio: (val: { width: number; height: number }) => void;
+
     cropDimensions: {
         x: number;
         y: number;
@@ -21,11 +17,6 @@ interface ImageData {
 export const useImageData = create<ImageData>((set) => ({
     image: "",
     setImage: (val) => set(() => ({ image: val })),
-    aspectRatio: {
-        width: 1320,
-        height: 2868,
-    },
-    setAspectRatio: (val) => set(() => ({ aspectRatio: val })),
     cropDimensions: {
         x: 0,
         y: 0,

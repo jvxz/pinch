@@ -3,7 +3,7 @@ import DeviceTypeSelect from "./type-select";
 
 export default function PanelContent() {
   return (
-    <section className="flex h-full flex-col gap-4 p-4">
+    <section className="flex h-full flex-col gap-2 p-4">
       <DeviceTypeSelect />
       <DeviceTable />
     </section>

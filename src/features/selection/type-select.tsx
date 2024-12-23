@@ -12,7 +12,7 @@ export default function DeviceTypeSelect() {
           console.log(type);
           setType("apple");
         }}
-        variant="secondary"
+        variant={type === "apple" ? "default" : "secondary"}
       >
         iPhone
       </Button>
@@ -21,11 +21,19 @@ export default function DeviceTypeSelect() {
           console.log(type);
           setType("android");
         }}
-        variant="secondary"
+        variant={type === "android" ? "default" : "secondary"}
       >
         Android
       </Button>
-      <Button variant="secondary">Custom</Button>
+      <Button
+        onClick={() => {
+          console.log(type);
+          setType("custom");
+        }}
+        variant={type === "custom" ? "default" : "secondary"}
+      >
+        Custom
+      </Button>
     </div>
   );
 }

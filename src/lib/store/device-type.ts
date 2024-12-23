@@ -7,8 +7,8 @@ type Device = {
 }
 
 interface DeviceType {
-    type: "apple" | "android";
-    setType: (val: "apple" | "android") => void;
+    type: "apple" | "android" | "custom"
+    setType: (val: "apple" | "android" | "custom") => void;
     device: Device
     setDevice: (val: Device) => void;
 }
