@@ -14,7 +14,10 @@ export default function LeftPanelContent() {
   const { toast } = useToast();
   async function handleImageChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
-    if (!file) return;
+    if (!file) {
+      console.error("No file selected");
+      return;
+    }
 
     const url = handleDataTransfer(file);
     if (!url) {

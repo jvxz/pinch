@@ -22,9 +22,7 @@ export default function DeviceTableSearch() {
 
   const handleClearInput = () => {
     setSearchTerm("");
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
+    if (inputRef.current) inputRef.current.focus();
   };
 
   return (

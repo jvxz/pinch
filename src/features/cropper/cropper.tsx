@@ -15,12 +15,18 @@ export default function ImageCropper() {
     croppedAreaPixels: Area,
   ) => {
     const x = await getCroppedImg("", croppedAreaPixels);
-    if (!x) return;
+    if (!x) {
+      console.error("Failed to crop image");
+      return;
+    }
     setCroppedImage(x);
   };
 
   function handleAspectRatio() {
-    if (!device.width || !device.height) return;
+    if (!device.width || !device.height) {
+      console.error("No device width or height");
+      return;
+    }
     return Number(device.width) / Number(device.height);
   }
 
