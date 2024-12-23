@@ -1,6 +1,5 @@
 'use server'
 import { z } from "zod";
-import { promises as fs } from 'fs';
 
 const devicesSchema = z.array(z.object({
     model: z.string(),
@@ -10,15 +9,16 @@ const devicesSchema = z.array(z.object({
     logicalHeight: z.number(),
 }))
 
-// export async function getDevices(type: "apple" | "android") {
-//     const devices = await fetch(`/api/${type}/devices.json`)
-//     const data = devicesSchema.parse(await devices.json())
+export async function getAppleDevices() {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/apple`);
+    const data: unknown = await res.json();
+    const parsedData = devicesSchema.parse(data);
+    return parsedData;
+}
 
-//     return data;
-// }
-
-export async function getDevices(type: "apple" | "android") {
-    const file = await fs.readFile(process.cwd() + `/src/app/${type}-devices.json`, 'utf8');
-    const data = devicesSchema.parse(JSON.parse(file));
-    return data;
+export async function getAndroidDevices() {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/android`);
+    const data: unknown = await res.json();
+    const parsedData = devicesSchema.parse(data);
+    return parsedData;
 }

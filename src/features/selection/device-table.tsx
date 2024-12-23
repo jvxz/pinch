@@ -1,10 +1,11 @@
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Toggle } from "@/components/ui/toggle";
+"use client";
 import DeviceTableSearch from "./device-search";
-import { getDevices } from "@/lib/server/get-devices";
+import AndroidDevices from "./android-devices";
+import AppleDevices from "./apple-devices";
+import { useDeviceType } from "@/lib/store/device-type";
 
-export default async function DeviceTable() {
-  const devices = await getDevices("apple");
+export default function DeviceTable() {
+  const { type } = useDeviceType();
 
   return (
     <section className="flex h-full max-h-full flex-col gap-2">
@@ -13,23 +14,9 @@ export default async function DeviceTable() {
         <p>Device</p>
         <p>Resolution</p>
       </div>
-      <ScrollArea className="flex h-[calc(100vh-16rem)] flex-col gap-2 rounded-md">
-        {/* <Toggle className="flex h-10 w-full items-center *:flex-1 *:p-2 *:text-left">
-          <p>iPhone 15 Pro</p>
-          <p>1520 x 750</p>
-        </Toggle> */}
-        {devices.map((device) => (
-          <Toggle
-            key={device.model}
-            className="flex h-10 w-full items-center *:flex-1 *:p-2 *:text-left"
-          >
-            <p>{device.model}</p>
-            <p>
-              {device.physicalWidth} x {device.physicalHeight}
-            </p>
-          </Toggle>
-        ))}
-      </ScrollArea>
+      <div className="flex h-[calc(100vh-16rem)] flex-col gap-1 overflow-y-scroll">
+        {type === "apple" ? <AppleDevices /> : <AndroidDevices />}
+      </div>
     </section>
   );
 }
