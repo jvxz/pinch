@@ -14,7 +14,7 @@ export default function ImageCropper() {
     croppedArea: Area,
     croppedAreaPixels: Area,
   ) => {
-    const x = await getCroppedImg("", croppedAreaPixels);
+    const x = await getCroppedImg(image, croppedAreaPixels);
     if (!x) {
       console.error("Failed to crop image");
       return;
