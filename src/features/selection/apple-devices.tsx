@@ -32,7 +32,7 @@ export default function AppleDevices() {
       >
         <p>{device.model}</p>
         <p>
-          {device.physicalWidth} x {device.physicalWidth}
+          {device.physicalWidth} x {device.physicalHeight}
         </p>
       </Toggle>
     ) : null;
