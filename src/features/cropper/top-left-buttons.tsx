@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import {
-  TooltipProvider,
   Tooltip,
   TooltipTrigger,
   TooltipContent,
@@ -8,7 +7,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { useImageData } from "@/lib/store/image-data";
 import { handleDataTransfer } from "@/lib/utils";
-import { Image, Import, RotateCcw } from "lucide-react";
+import { Import, RotateCcw } from "lucide-react";
 import { useRef } from "react";
 export default function TopLeftButtons() {
   const inputRef = useRef<HTMLInputElement>(null);

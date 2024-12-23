@@ -49,6 +49,7 @@ export default function LeftPanelContent() {
               className="motion-duration-400 motion-preset-focus flex size-64 flex-col gap-2 rounded-xl motion-delay-100"
               onClick={() => inputRef.current?.click()}
             >
+              {/* eslint-disable-next-line jsx-a11y/alt-text */}
               <Image className="size-16" />
               <h1 className="text-2xl font-semibold">Import image</h1>
               <p className="text-wrap px-6 text-sm text-muted-foreground">
