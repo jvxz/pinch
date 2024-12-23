@@ -1,4 +1,10 @@
 import { Button } from "@/components/ui/button";
+import {
+  TooltipProvider,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/ui/tooltip";
 import { useToast } from "@/hooks/use-toast";
 import { useImageData } from "@/lib/store/image-data";
 import { handleDataTransfer } from "@/lib/utils";
@@ -28,16 +34,31 @@ export default function TopLeftButtons() {
   }
   return (
     <div className="motion-preset-fade absolute left-0 top-0 m-4 flex flex-col gap-2">
-      <Button
-        onClick={() => inputRef.current?.click()}
-        size="icon"
-        variant="outline"
-      >
-        <Import />
-      </Button>
-      <Button onClick={() => setImage("")} size="icon" variant="outline">
-        <RotateCcw />
-      </Button>
+      <Tooltip>
+        <TooltipTrigger>
+          <Button
+            onClick={() => inputRef.current?.click()}
+            size="icon"
+            variant="outline"
+          >
+            <Import />
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent side="right">
+          <p>Import</p>
+        </TooltipContent>
+      </Tooltip>
+      <Tooltip>
+        <TooltipTrigger>
+          <Button onClick={() => setImage("")} size="icon" variant="outline">
+            <RotateCcw />
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent side="right">
+          <p>Reset</p>
+        </TooltipContent>
+      </Tooltip>
+
       <input
         ref={inputRef}
         type="file"

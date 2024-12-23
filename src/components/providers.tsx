@@ -2,6 +2,7 @@
 import DropoverProvider from "./dropover-provider";
 import { ThemeProvider } from "next-themes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { TooltipProvider } from "./ui/tooltip";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   const queryClient = new QueryClient({
@@ -20,8 +21,10 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         enableSystem
         disableTransitionOnChange
       >
-        <DropoverProvider />
-        {children}
+        <TooltipProvider>
+          <DropoverProvider />
+          {children}
+        </TooltipProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );
