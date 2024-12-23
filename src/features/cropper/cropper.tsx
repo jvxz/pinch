@@ -5,14 +5,8 @@ import { useImageData } from "@/lib/store/image-data";
 import { useDeviceStore } from "@/lib/store/device-type";
 import getCroppedImg from "./get-cropped-image";
 export default function ImageCropper() {
-  const {
-    setCropDimensions,
-    cropDimensions,
-    setCroppedImage,
-    croppedImage,
-    setZoom,
-    zoom,
-  } = useImageData();
+  const { setCropDimensions, cropDimensions, setCroppedImage, setZoom, zoom } =
+    useImageData();
   const { device } = useDeviceStore();
   const { image } = useImageData();
 

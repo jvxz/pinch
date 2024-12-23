@@ -5,20 +5,27 @@ import { Button } from "@/components/ui/button";
 import { useImageData } from "@/lib/store/image-data";
 import { Image } from "lucide-react";
 import ImageCropper from "../cropper/cropper";
+import { handleDataTransfer } from "@/lib/utils";
+import { useToast } from "@/hooks/use-toast";
 
 export default function LeftPanelContent() {
   const inputRef = useRef<HTMLInputElement>(null);
   const { image, setImage } = useImageData();
-
+  const { toast } = useToast();
   async function handleImageChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    setImage(URL.createObjectURL(file));
-
-    // const blob = new Blob([file], { type: file.type });
-    // const url = URL.createObjectURL(blob);
-    // console.log(`blob:${url}`);
+    const url = handleDataTransfer(file);
+    if (!url) {
+      toast({
+        title: "Invalid image",
+        description: "Please select a valid image file",
+        variant: "destructive",
+      });
+      return;
+    }
+    setImage(url);
   }
   return (
     <>
@@ -44,6 +51,7 @@ export default function LeftPanelContent() {
               ref={inputRef}
               className="hidden"
               type="file"
+              accept="image/*"
               onChange={handleImageChange}
             />
           </>

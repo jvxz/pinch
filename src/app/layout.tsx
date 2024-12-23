@@ -2,6 +2,7 @@ import Providers from "@/components/providers";
 import "@/styles/globals.css";
 import { Radio_Canada_Big } from "next/font/google";
 import { type Metadata } from "next";
+import { Toaster } from "@/components/ui/toaster";
 
 const font = Radio_Canada_Big({
   subsets: ["latin"],
@@ -20,7 +21,11 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="en" className={`${font.className}`}>
       <body className="h-screen">
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+
+          <Toaster />
+        </Providers>
       </body>
     </html>
   );

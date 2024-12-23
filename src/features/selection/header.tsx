@@ -8,7 +8,7 @@ export default function PanelHeader() {
       <div className="flex h-fit items-end gap-2">
         <h2 className="text-2xl font-semibold">pinch</h2>
         <p className="-translate-y-[3px] text-sm text-muted-foreground">
-          v0.0.1
+          v2.0.0
         </p>
       </div>
       <div className="flex items-center gap-2">
