@@ -1,9 +1,9 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { useDeviceType } from "@/lib/store/device-type";
+import { useDeviceStore } from "@/lib/store/device-type";
 
 export default function DeviceTypeSelect() {
-  const { setType, type } = useDeviceType();
+  const { setType, type } = useDeviceStore();
 
   return (
     <div className="flex items-center gap-2 *:flex-1">

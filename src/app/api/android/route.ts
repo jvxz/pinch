@@ -1,6 +1,6 @@
 import devices from "./android-devices.json";
 import { NextResponse } from 'next/server'
 
-export async function GET(request: Request) {
+export async function GET() {
     return NextResponse.json(devices)
 }

@@ -9,7 +9,7 @@ export default function LeftPanelContent() {
         <Button
           size="icon"
           variant="outline"
-          className="flex size-64 flex-col gap-2 rounded-xl"
+          className="motion-preset-focus motion-duration-400 motion-delay-100 flex size-64 flex-col gap-2 rounded-xl"
         >
           {/* eslint-disable-next-line jsx-a11y/alt-text */}
           <Image className="size-16" />
