@@ -7,6 +7,8 @@ import { Image } from "lucide-react";
 import ImageCropper from "../cropper/cropper";
 import { handleDataTransfer } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
+import TopLeftButtons from "../cropper/top-left-buttons";
+import TopRightButtons from "../cropper/top-right-buttons";
 
 export default function LeftPanelContent() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -34,7 +36,11 @@ export default function LeftPanelContent() {
     <>
       <section className="grid size-full place-items-center">
         {image ? (
-          <ImageCropper />
+          <div className="relative w-full">
+            <ImageCropper />
+            <TopLeftButtons />
+            <TopRightButtons />
+          </div>
         ) : (
           <>
             <Button
